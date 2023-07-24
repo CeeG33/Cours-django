@@ -18,6 +18,10 @@ class Band(models.Model):
 
     genre = models.fields.CharField(choices=Genre.choices, max_length=5)
 
+    def __str__(self) -> str:
+        return f"{self.name}"
+    
+
 class Listing(models.Model):
     title = models.fields.CharField(max_length=100)
     description = models.fields.CharField(max_length=1000)
@@ -31,3 +35,5 @@ class Listing(models.Model):
         MISCELLANEOUS = "MISC"
 
     type = models.fields.CharField(choices=Type.choices, max_length=5)
+
+    band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
