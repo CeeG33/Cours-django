@@ -3,18 +3,14 @@
 
 {% block content %}
 
-<html>
-<head><title>MerchEx - Listings</title></head>
-<body>
-    <h1>Listings</h1>
+<h1>Listings</h1>
 
-    <ul>
-        {% for listing in listings %}
-        <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title|upper }}</a></li>
-        {% endfor %}
-    </ul>
-            
-</body>
-</html>
+<ul>
+    {% for listing in listings %}
+    <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title|upper }}</a> - <a href="{% url 'listing-change' listing.id %}">Modifier</a></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'listing-create'  %}">Créer une nouvelle annonce</a>
 
 {% endblock %}

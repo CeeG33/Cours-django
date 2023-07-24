@@ -25,7 +25,7 @@ class Band(models.Model):
 class Listing(models.Model):
     title = models.fields.CharField(max_length=100)
     description = models.fields.CharField(max_length=1000)
-    sold = models.fields.BooleanField(default=False)
+    sold = models.fields.BooleanField(default=False, null=True)
     year = models.fields.IntegerField(null=True, blank=True)
     
     class Type(models.TextChoices):
